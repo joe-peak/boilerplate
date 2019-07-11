@@ -7,12 +7,13 @@
     "start": "webpack --color"
   },
   "dependencies": {
-    "css-loader": "^3.0.0",
     "lodash": "^4.17.14",
-    "path": "^0.12.7",
-    "style-loader": "^0.23.1"
+    "path": "^0.12.7"
   },
   "devDependencies": {
+    "css-loader": "^3.0.0",
+    "file-loader": "^4.0.0",
+    "style-loader": "^0.23.1",
     "webpack": "^4.35.3",
     "webpack-cli": "^3.3.5"
   }
