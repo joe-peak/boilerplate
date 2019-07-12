@@ -22,7 +22,34 @@ module.exports = {
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/,
-        use: ['file-loader'],
+        use: [
+          'file-loader',
+          {
+            // 图片优化
+            loader: 'image-webpack-loader',
+            options:  {
+              mozjpeg: {
+                progressive: true,
+                quality: 65
+              },
+              // optipng.enabled: false will disable optipng
+              optipng: {
+                enabled: false,
+              },
+              pngquant: {
+                quality: '65-90',
+                speed: 4
+              },
+              gifsicle: {
+                interlaced: false,
+              },
+              // the webp option will enable WEBP
+              webp: {
+                quality: 75
+              }
+            }
+          },
+        ],
       }
     ],
   }
