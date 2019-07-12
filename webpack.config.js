@@ -1,10 +1,16 @@
 const path = require('path');
+const webpack = require('webpack');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: path.resolve(__dirname, './src/index.js'),
+  entry: {
+    app: path.resolve(__dirname, './src/index.js'),
+    print: path.resolve(__dirname, './src/print.js'),
+  },
   output: {
     path: path.resolve(__dirname, './dist'),
-    filename: 'bundle.js'
+    filename: '[name].bundle.js'
   },
   mode: 'development',
   devtool: '',
@@ -64,5 +70,14 @@ module.exports = {
         loader: 'xml-loader'
       }
     ],
-  }
+  },
+  plugins: [
+    new CleanWebpackPlugin(),
+    new webpack.ProgressPlugin(),
+    new HtmlWebpackPlugin({
+      title: 'boilerplate',
+      template: path.resolve('./src/index.html'),
+      cache: true,
+    }),
+  ],
 };
