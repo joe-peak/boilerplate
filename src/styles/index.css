@@ -1,3 +1,11 @@
 .color {
   color: blueviolet;
 }
+
+.bgImg {
+  width: 250px;
+  height: 125px;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-image: url('../images/website.jpg');
+}
